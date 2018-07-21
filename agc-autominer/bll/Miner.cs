@@ -26,13 +26,13 @@ namespace miner.bll
             switch (e_gpuType)
             {
                 case E_GPUType.Navida:
-                    return System.Windows.Forms.Application.StartupPath + (is64Bit ? "\\addon\\nvidia\\x64\\ccminer-x64.exe" : "\\addon\\nvidia\\x86\\ccminer.exe")
+                    return System.Windows.Forms.Application.StartupPath + (is64Bit ? "\\addon\\nvidia\\win_x64\\ccminer-x64.exe" : "\\addon\\nvidia\\win_x86\\ccminer.exe")
                         + " -a " + algo 
                         + " -o stratum+tcp://" + poolUrl
                         + " -u " + account
                         + " -p c=" + coin;
                 case E_GPUType.AMD:
-                    return System.Windows.Forms.Application.StartupPath + "\\addon\\amd\\x86\\sgminer.exe"
+                    return System.Windows.Forms.Application.StartupPath + "\\addon\\amd\\win_x86\\sgminer.exe"
                         + " -k " + algo
                         + " -o stratum+tcp://" + poolUrl
                         + " -u " + account

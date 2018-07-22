@@ -22,8 +22,12 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
-    <ApplicationRevision>5</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <TargetCulture>en-001</TargetCulture>
+    <ProductName>agc auto miner</ProductName>
+    <PublisherName>allgamescoin dev</PublisherName>
+    <SuiteName>agc auto miner</SuiteName>
+    <ApplicationRevision>24</ApplicationRevision>
+    <ApplicationVersion>1.1.2.24</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>

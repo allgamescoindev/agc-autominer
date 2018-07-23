@@ -1,15 +1,15 @@
-﻿using miner.common;
+﻿using agc_autominer.common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace miner.bll
+namespace agc_autominer.bll
 {
     public class Config
     {
-        private static string iniFilePath = System.Windows.Forms.Application.StartupPath +  "\\config.ini";
+        public static string iniFilePath = System.Windows.Forms.Application.StartupPath +  "\\config.ini";
 
         public static bool configStartUp
         {

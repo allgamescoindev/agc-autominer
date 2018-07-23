@@ -33,7 +33,6 @@
             this.txtCmdOutput = new System.Windows.Forms.TextBox();
             this.txtAccount = new System.Windows.Forms.TextBox();
             this.Account = new System.Windows.Forms.Label();
-            this.txtPool = new System.Windows.Forms.TextBox();
             this.Pool = new System.Windows.Forms.Label();
             this.ddlGPU = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -41,6 +40,8 @@
             this.cbStartUp = new System.Windows.Forms.CheckBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.btnAddPool = new System.Windows.Forms.Button();
+            this.ddlPool = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // btnStartMining
@@ -96,17 +97,6 @@
             this.Account.TabIndex = 12;
             this.Account.Text = "Account";
             // 
-            // txtPool
-            // 
-            this.txtPool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(52)))));
-            this.txtPool.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtPool.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.txtPool.ForeColor = System.Drawing.Color.White;
-            this.txtPool.Location = new System.Drawing.Point(133, 52);
-            this.txtPool.Name = "txtPool";
-            this.txtPool.Size = new System.Drawing.Size(479, 21);
-            this.txtPool.TabIndex = 11;
-            // 
             // Pool
             // 
             this.Pool.AutoSize = true;
@@ -121,6 +111,7 @@
             // ddlGPU
             // 
             this.ddlGPU.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(52)))));
+            this.ddlGPU.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ddlGPU.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.ddlGPU.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ddlGPU.ForeColor = System.Drawing.Color.White;
@@ -132,7 +123,6 @@
             this.ddlGPU.Name = "ddlGPU";
             this.ddlGPU.Size = new System.Drawing.Size(121, 20);
             this.ddlGPU.TabIndex = 13;
-            this.ddlGPU.Text = "Select";
             // 
             // label1
             // 
@@ -195,12 +185,43 @@
             this.label3.Text = "@Copyright 2018, AllGamesCoin Dev";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // btnAddPool
+            // 
+            this.btnAddPool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(33)))), ((int)(((byte)(79)))));
+            this.btnAddPool.FlatAppearance.BorderSize = 0;
+            this.btnAddPool.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(0)))), ((int)(((byte)(38)))));
+            this.btnAddPool.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(228)))), ((int)(((byte)(104)))), ((int)(((byte)(129)))));
+            this.btnAddPool.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPool.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.btnAddPool.ForeColor = System.Drawing.Color.White;
+            this.btnAddPool.Location = new System.Drawing.Point(517, 52);
+            this.btnAddPool.Name = "btnAddPool";
+            this.btnAddPool.Size = new System.Drawing.Size(95, 21);
+            this.btnAddPool.TabIndex = 0;
+            this.btnAddPool.Text = "Add Pool";
+            this.btnAddPool.UseVisualStyleBackColor = false;
+            this.btnAddPool.Click += new System.EventHandler(this.btnAddPool_Click);
+            // 
+            // ddlPool
+            // 
+            this.ddlPool.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(46)))), ((int)(((byte)(46)))), ((int)(((byte)(52)))));
+            this.ddlPool.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ddlPool.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.ddlPool.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ddlPool.ForeColor = System.Drawing.Color.White;
+            this.ddlPool.FormattingEnabled = true;
+            this.ddlPool.Location = new System.Drawing.Point(133, 52);
+            this.ddlPool.Name = "ddlPool";
+            this.ddlPool.Size = new System.Drawing.Size(378, 20);
+            this.ddlPool.TabIndex = 16;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(33)))));
             this.ClientSize = new System.Drawing.Size(624, 434);
+            this.Controls.Add(this.ddlPool);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.cbStartUp);
             this.Controls.Add(this.ddlGPU);
@@ -208,9 +229,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Pool);
             this.Controls.Add(this.Account);
-            this.Controls.Add(this.txtPool);
             this.Controls.Add(this.txtAccount);
             this.Controls.Add(this.txtCmdOutput);
+            this.Controls.Add(this.btnAddPool);
             this.Controls.Add(this.btnSaveConfig);
             this.Controls.Add(this.btnStartMining);
             this.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
@@ -231,7 +252,6 @@
         private System.Windows.Forms.TextBox txtCmdOutput;
         private System.Windows.Forms.TextBox txtAccount;
         private System.Windows.Forms.Label Account;
-        private System.Windows.Forms.TextBox txtPool;
         private System.Windows.Forms.Label Pool;
         private System.Windows.Forms.ComboBox ddlGPU;
         private System.Windows.Forms.Label label1;
@@ -239,6 +259,8 @@
         private System.Windows.Forms.CheckBox cbStartUp;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnAddPool;
+        private System.Windows.Forms.ComboBox ddlPool;
     }
 }
 

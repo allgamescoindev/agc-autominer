@@ -22,12 +22,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
-    <TargetCulture>en-001</TargetCulture>
-    <ProductName>agc auto miner</ProductName>
-    <PublisherName>allgamescoin dev</PublisherName>
-    <SuiteName>agc auto miner</SuiteName>
-    <ApplicationRevision>24</ApplicationRevision>
-    <ApplicationVersion>1.1.2.24</ApplicationVersion>
+    <ApplicationRevision>25</ApplicationRevision>
+    <ApplicationVersion>1.1.2.25</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -55,7 +51,10 @@
     <ApplicationIcon>allgamescoin.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>6C353FC476B99DA85DB18E7678E9A9D654F4E942</ManifestCertificateThumbprint>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>9717D22CD728C3652E76ADDCE808127D824163A3</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup>
     <ManifestKeyFile>agc-autominer_TemporaryKey.pfx</ManifestKeyFile>
@@ -66,13 +65,11 @@
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
-  </PropertyGroup>
-  <PropertyGroup>
-    <SignManifests>false</SignManifests>
-  </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=11.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -87,17 +84,29 @@
   <ItemGroup>
     <Compile Include="bll\Config.cs" />
     <Compile Include="bll\Miner.cs" />
+    <Compile Include="bll\PoolBLL.cs" />
     <Compile Include="common\CmdHelper.cs" />
     <Compile Include="common\IniHelper.cs" />
+    <Compile Include="common\JsonHelper.cs" />
     <Compile Include="common\WinOSHelper.cs" />
+    <Compile Include="frmPool.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPool.Designer.cs">
+      <DependentUpon>frmPool.cs</DependentUpon>
+    </Compile>
     <Compile Include="Main.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
+    <Compile Include="model\Pool.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmPool.resx">
+      <DependentUpon>frmPool.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
@@ -110,285 +119,286 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Content Include="addon\amd\win_x86\example.bat">
+    <None Include="addon\amd\win_x86\example.bat">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\aes_helper.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\aes_helper.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\alexkarnew.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\alexkarnew.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\alexkarold.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\alexkarold.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\animecoin.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\animecoin.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\arebyp.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\arebyp.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\bitblock.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\bitblock.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\bitblockold.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\bitblockold.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\blake.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\blake.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\blake256.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\blake256.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\blake256r14.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\blake256r14.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\blake256r8.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\blake256r8.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\bmw.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\bmw.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\bmw256.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\bmw256.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\bufius.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\bufius.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\ckolivas.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\ckolivas.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\credits.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\credits.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\cryptonight.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\cryptonight.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\cubehash.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\cubehash.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\cubehash256.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\cubehash256.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\darkcoin-mod.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\darkcoin-mod.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\darkcoin.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\darkcoin.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\diamond.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\diamond.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\echo.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\echo.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\equihash.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\equihash.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\ethash-genoil.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\ethash-genoil.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\ethash-new.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\ethash-new.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\ethash.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\ethash.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\fresh.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\fresh.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\fugue.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\fugue.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\fuguecoin.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\fuguecoin.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\groestl.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\groestl.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\groestl256.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\groestl256.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\groestlcoin-v1.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\groestlcoin-v1.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\groestlcoin.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\groestlcoin.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\hamsi.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\hamsi.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\hamsi_helper.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\hamsi_helper.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\hamsi_helper_big.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\hamsi_helper_big.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\inkcoin.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\inkcoin.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\jh.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\jh.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\keccak.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\keccak.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\keccak1600.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\keccak1600.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\luffa.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\luffa.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\lyra2.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\lyra2.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\lyra2re.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\lyra2re.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\lyra2rev2.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\lyra2rev2.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\lyra2v2.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\lyra2v2.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\marucoin-mod.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\marucoin-mod.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\marucoin-modold.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\marucoin-modold.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\marucoin.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\marucoin.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\maxcoin.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\maxcoin.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\myriadcoin-groestl.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\myriadcoin-groestl.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\neoscrypt.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\neoscrypt.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\panama.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\panama.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\pluck.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\pluck.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\psw.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\psw.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\quarkcoin.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\quarkcoin.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\qubitcoin.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\qubitcoin.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\shabal.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\shabal.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\shavite.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\shavite.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\sifcoin.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\sifcoin.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\simd.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\simd.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\skein.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\skein.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\skein256.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\skein256.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\talkcoin-mod.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\talkcoin-mod.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\twecoin.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\twecoin.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\vanilla.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\vanilla.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\whirlcoin.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\whirlcoin.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\whirlpool.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\whirlpool.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\whirlpoolx.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\whirlpoolx.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\wolf-aes.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\wolf-aes.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\wolf-sha512.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\wolf-sha512.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\wolf-skein.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\wolf-skein.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\x11evo\x11evo_blake.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\x11evo\x11evo_blake.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\x11evo\x11evo_bmw.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\x11evo\x11evo_bmw.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\x11evo\x11evo_cubehash.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\x11evo\x11evo_cubehash.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\x11evo\x11evo_echo.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\x11evo\x11evo_echo.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\x11evo\x11evo_footer.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\x11evo\x11evo_footer.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\x11evo\x11evo_groestl.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\x11evo\x11evo_groestl.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\x11evo\x11evo_header.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\x11evo\x11evo_header.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\x11evo\x11evo_jh.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\x11evo\x11evo_jh.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\x11evo\x11evo_keccak.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\x11evo\x11evo_keccak.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\x11evo\x11evo_luffa.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\x11evo\x11evo_luffa.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\x11evo\x11evo_shavite.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\x11evo\x11evo_shavite.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\x11evo\x11evo_simd.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\x11evo\x11evo_simd.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\x11evo\x11evo_skein.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\x11evo\x11evo_skein.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\x14.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\x14.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\x14old.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\x14old.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\x16r.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\x16r.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\yescrypt-multi.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\yescrypt-multi.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\yescrypt.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\yescrypt.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\yescrypt_essential.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\yescrypt_essential.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\zuikkis.cl">
+    </None>
+    <None Include="addon\amd\win_x86\kernel\zuikkis.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -404,51 +414,51 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="addon\nvidia\win_x64\ccminer-x64.exe">
+    <None Include="addon\amd\win_x86\kernel\equihash-param.h">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\nvidia\win_x64\msvcr120.dll">
+    </None>
+    <None Include="addon\amd\win_x86\libcurl.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\nvidia\win_x86\ccminer.exe">
+    </None>
+    <None Include="addon\amd\win_x86\libeay32.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\nvidia\win_x86\msvcr120.dll">
+    </None>
+    <None Include="addon\amd\win_x86\libidn-11.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\kernel\equihash-param.h">
+    </None>
+    <None Include="addon\amd\win_x86\librtmp.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\libcurl.dll">
+    </None>
+    <None Include="addon\amd\win_x86\libssh2.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\libeay32.dll">
+    </None>
+    <None Include="addon\amd\win_x86\pdcurses.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\libidn-11.dll">
+    </None>
+    <None Include="addon\amd\win_x86\pthreadGC2.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\librtmp.dll">
+    </None>
+    <None Include="addon\amd\win_x86\sgminer.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\libssh2.dll">
+    </None>
+    <None Include="addon\amd\win_x86\ssleay32.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\pdcurses.dll">
+    </None>
+    <None Include="addon\amd\win_x86\zlib1.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\pthreadGC2.dll">
+    </None>
+    <None Include="addon\nvidia\win_x64\ccminer-x64.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\sgminer.exe">
+    </None>
+    <None Include="addon\nvidia\win_x64\msvcr120.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\ssleay32.dll">
+    </None>
+    <None Include="addon\nvidia\win_x86\ccminer.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="addon\amd\win_x86\zlib1.dll">
+    </None>
+    <None Include="addon\nvidia\win_x86\msvcr120.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
+    </None>
     <Content Include="allgamescoin.ico" />
   </ItemGroup>
   <ItemGroup>

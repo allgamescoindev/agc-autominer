@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace miner.common
+namespace agc_autominer.common
 {
     public class WinOSHelper
     {

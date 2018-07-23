@@ -8,9 +8,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using miner.common;
-using miner.bll;
+using agc_autominer.common;
+using agc_autominer.bll;
 using System.Threading;
+using agc_autominer.model;
 
 namespace agc_autominer
 {
@@ -57,8 +58,20 @@ namespace agc_autominer
         public void loadConfig()
         {
             txtAccount.Text = Config.configAccount;
-            txtPool.Text = Config.configPool;
+
+            List<Pool> mPools = new PoolBLL().getAll();
+            List<Pool> myPools = new List<Pool>();
+            if (mPools != null)
+            {
+                mPools.ForEach(i => myPools.Add(i));
+            }
+            ddlPool.DataSource = myPools;
+            ddlPool.ValueMember = "poolName";
+            ddlPool.DisplayMember = "poolName";
+            ddlPool.SelectedValue = Config.configPool;
+
             ddlGPU.SelectedIndex = Config.configGPUType;
+
             cbStartUp.Checked = Config.configStartUp;
         }
 
@@ -92,16 +105,15 @@ namespace agc_autominer
                 Config.configAccount = txtAccount.Text.Trim();
             }
 
-            string configPool = txtPool.Text;
+            string configPool = ddlPool.SelectedItem != null ? ((Pool)ddlPool.SelectedItem).poolName : null;
             if (String.IsNullOrEmpty(configPool))
             {
-                MessageBox.Show("Pool url is null!");
+                MessageBox.Show("Pool is null!");
             }
             else
             {
-                Config.configPool = txtPool.Text.Trim().Replace("stratum+tcp://", "").Replace("http://", "").Replace("https://", "");
+                Config.configPool = configPool;
             }
-
             Config.configGPUType = ddlGPU.SelectedIndex;
 
             Config.configStartUp = cbStartUp.Checked;
@@ -125,6 +137,14 @@ namespace agc_autominer
                     }
                 }));
             }).Start();
+        }
+
+
+        private void btnAddPool_Click(object sender, EventArgs e)
+        {
+            frmPool f = new frmPool();
+            f.loadConfigDelegate = loadConfig;
+            f.Show();
         }
     }
 }

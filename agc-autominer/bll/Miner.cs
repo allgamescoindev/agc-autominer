@@ -1,4 +1,5 @@
-﻿using miner.common;
+﻿using agc_autominer.common;
+using agc_autominer.model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -8,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace miner.bll
+namespace agc_autominer.bll
 {
     public class Miner
     {
@@ -27,7 +28,7 @@ namespace miner.bll
             {
                 case E_GPUType.Navida:
                     return System.Windows.Forms.Application.StartupPath + (is64Bit ? "\\addon\\nvidia\\win_x64\\ccminer-x64.exe" : "\\addon\\nvidia\\win_x86\\ccminer.exe")
-                        + " -a " + algo 
+                        + " -a " + algo
                         + " -o stratum+tcp://" + poolUrl
                         + " -u " + account
                         + " -p c=" + coin;
@@ -64,7 +65,8 @@ namespace miner.bll
                 process.StartInfo.CreateNoWindow = true;//Do not display a program window
                 process.OutputDataReceived += new DataReceivedEventHandler(OutputHandler);
                 process.Start();//Startup program
-                process.StandardInput.WriteLine(Miner.GetMinerString((Miner.E_GPUType)Config.configGPUType, "x16r", "AGC", Config.configPool, Config.configAccount));
+                Pool mPool = new PoolBLL().get(Config.configPool);
+                process.StandardInput.WriteLine(Miner.GetMinerString((Miner.E_GPUType)Config.configGPUType, "x16r", "AGC", mPool != null ? mPool.poolStratumUrl : null, Config.configAccount));
                 process.BeginOutputReadLine();
 
                 return true;

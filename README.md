@@ -31,8 +31,8 @@ b. Api url is the api url of the pool that powered by yiimp. eg. pool.allgamesco
 
 ## 4.Version
 
-1.1.4.40<br>Add P.<br>
-1.1.3.30<br>Add Pool Manage.<br>
+1.1.4.40<br>Add pool's balance.<br>
+1.1.3.30<br>Add pool manage.<br>
 1.1.2.24<br>New UI.<br>
 1.0.7.12<br>Add Start up.<br>
 1.0.5.10<br>Support AMD, add sgminer core.<br>

@@ -4,7 +4,7 @@ AllGamesCoin @Coryright 2018, AllGamesCore Dev
 
 ## 1.Overview
 
-AllGamesCoin Auto Miner is a mining program that supports Nvidia and AMD GPUs. It incloud ccminer and sgminer core. It can automatically use different cores to mine according to your equipment.
+AllGamesCoin Auto Miner is a mining program that supports Nvidia and AMD GPUs. It inclouds ccminer and sgminer core. It can automatically use different cores to mine according to your equipment.
 
 ## 2.Install
 
@@ -12,7 +12,7 @@ AllGamesCoin Auto Miner is a mining program that supports Nvidia and AMD GPUs. I
 #### a. NET Framework 4.5<br>
 Windows 10 has installed this environment. If you use Windows 8/7/XP, download it form https://www.microsoft.com/en-us/download/details.aspx?id=42642<br>
 #### b. CUDA 9.1<br>
-The nvidia core is word on cuda 9.1. If your miner not work, try to update your drivers.<br>
+The nvidia core works on cuda 9.1. If your miner not work, try to update your drivers.<br>
 ### 2) Download<br>
 Download the latest version of the mining software<br>
 https://github.com/allgamescoindev/agc-auto-miner/releases<br>
@@ -22,8 +22,10 @@ Unzip the file, click agc-autominer.exe to run.<br>
 ## 3.Guide
 
 1) Account is your wallet address and work id. eg. AYNL6LVA4Za54HThT9xouhoa23ik3zxdNf.work01<br>
-2) Stratum url is stratum url and port, not website url, you can find it in pool's page. eg. mine.allgamescoin.org:3636<br>
-3) Api url is the api url of the pool that powered by yiimp. eg. pool.allgamescoin.org<br>
+2) Choose the pool in the dropdown list. If you want to use custom pool, you can click 'Add Pool' and see 3). 
+3) How to Add Pool. If you have pools, skip 3).<br>
+a. Stratum url inclouds url and port, not website url, you can find it in pool's page. eg. mine.allgamescoin.org:3636. 
+b. Api url is the api url of the pool that powered by yiimp. eg. pool.allgamescoin.org<br>
 4) Start up enables the mining software to work automatically after the mine is restarted.<br>
 5) Save conifg or Start mining.<br>
 

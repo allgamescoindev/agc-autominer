@@ -42,6 +42,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnAddPool = new System.Windows.Forms.Button();
             this.ddlPool = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lbUnpaidCount = new System.Windows.Forms.Label();
+            this.lbPaidIn24hCount = new System.Windows.Forms.Label();
+            this.lbEarnedCount = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btnStartMining
@@ -56,7 +62,7 @@
             this.btnStartMining.Location = new System.Drawing.Point(141, 149);
             this.btnStartMining.Name = "btnStartMining";
             this.btnStartMining.Size = new System.Drawing.Size(471, 32);
-            this.btnStartMining.TabIndex = 0;
+            this.btnStartMining.TabIndex = 6;
             this.btnStartMining.Text = "Start Mining";
             this.btnStartMining.UseVisualStyleBackColor = false;
             this.btnStartMining.Click += new System.EventHandler(this.btnStartMining_Click);
@@ -67,12 +73,12 @@
             this.txtCmdOutput.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtCmdOutput.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.txtCmdOutput.ForeColor = System.Drawing.Color.White;
-            this.txtCmdOutput.Location = new System.Drawing.Point(12, 199);
+            this.txtCmdOutput.Location = new System.Drawing.Point(12, 225);
             this.txtCmdOutput.Multiline = true;
             this.txtCmdOutput.Name = "txtCmdOutput";
             this.txtCmdOutput.ReadOnly = true;
             this.txtCmdOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtCmdOutput.Size = new System.Drawing.Size(600, 211);
+            this.txtCmdOutput.Size = new System.Drawing.Size(600, 185);
             this.txtCmdOutput.TabIndex = 10;
             // 
             // txtAccount
@@ -84,7 +90,7 @@
             this.txtAccount.Location = new System.Drawing.Point(133, 19);
             this.txtAccount.Name = "txtAccount";
             this.txtAccount.Size = new System.Drawing.Size(479, 21);
-            this.txtAccount.TabIndex = 11;
+            this.txtAccount.TabIndex = 0;
             // 
             // Account
             // 
@@ -122,7 +128,7 @@
             this.ddlGPU.Location = new System.Drawing.Point(133, 85);
             this.ddlGPU.Name = "ddlGPU";
             this.ddlGPU.Size = new System.Drawing.Size(121, 20);
-            this.ddlGPU.TabIndex = 13;
+            this.ddlGPU.TabIndex = 3;
             // 
             // label1
             // 
@@ -147,7 +153,7 @@
             this.btnSaveConfig.Location = new System.Drawing.Point(12, 149);
             this.btnSaveConfig.Name = "btnSaveConfig";
             this.btnSaveConfig.Size = new System.Drawing.Size(123, 32);
-            this.btnSaveConfig.TabIndex = 0;
+            this.btnSaveConfig.TabIndex = 5;
             this.btnSaveConfig.Text = "Save Config";
             this.btnSaveConfig.UseVisualStyleBackColor = false;
             this.btnSaveConfig.Click += new System.EventHandler(this.btnSaveConfig_Click);
@@ -159,7 +165,7 @@
             this.cbStartUp.Location = new System.Drawing.Point(133, 118);
             this.cbStartUp.Name = "cbStartUp";
             this.cbStartUp.Size = new System.Drawing.Size(150, 16);
-            this.cbStartUp.TabIndex = 14;
+            this.cbStartUp.TabIndex = 4;
             this.cbStartUp.Text = "Start Up With Windows";
             this.cbStartUp.UseVisualStyleBackColor = true;
             // 
@@ -197,7 +203,7 @@
             this.btnAddPool.Location = new System.Drawing.Point(517, 52);
             this.btnAddPool.Name = "btnAddPool";
             this.btnAddPool.Size = new System.Drawing.Size(95, 21);
-            this.btnAddPool.TabIndex = 0;
+            this.btnAddPool.TabIndex = 2;
             this.btnAddPool.Text = "Add Pool";
             this.btnAddPool.UseVisualStyleBackColor = false;
             this.btnAddPool.Click += new System.EventHandler(this.btnAddPool_Click);
@@ -210,10 +216,77 @@
             this.ddlPool.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.ddlPool.ForeColor = System.Drawing.Color.White;
             this.ddlPool.FormattingEnabled = true;
+            this.ddlPool.ItemHeight = 12;
             this.ddlPool.Location = new System.Drawing.Point(133, 52);
             this.ddlPool.Name = "ddlPool";
             this.ddlPool.Size = new System.Drawing.Size(378, 20);
             this.ddlPool.TabIndex = 16;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(12, 198);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(41, 12);
+            this.label4.TabIndex = 12;
+            this.label4.Text = "Unpaid";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(206, 198);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(71, 12);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Paid in 24h";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(420, 198);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(41, 12);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Earned";
+            // 
+            // lbUnpaidCount
+            // 
+            this.lbUnpaidCount.AutoSize = true;
+            this.lbUnpaidCount.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbUnpaidCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(27)))));
+            this.lbUnpaidCount.Location = new System.Drawing.Point(69, 198);
+            this.lbUnpaidCount.Name = "lbUnpaidCount";
+            this.lbUnpaidCount.Size = new System.Drawing.Size(41, 12);
+            this.lbUnpaidCount.TabIndex = 12;
+            this.lbUnpaidCount.Text = "0.0000";
+            // 
+            // lbPaidIn24hCount
+            // 
+            this.lbPaidIn24hCount.AutoSize = true;
+            this.lbPaidIn24hCount.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbPaidIn24hCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(27)))));
+            this.lbPaidIn24hCount.Location = new System.Drawing.Point(294, 198);
+            this.lbPaidIn24hCount.Name = "lbPaidIn24hCount";
+            this.lbPaidIn24hCount.Size = new System.Drawing.Size(41, 12);
+            this.lbPaidIn24hCount.TabIndex = 12;
+            this.lbPaidIn24hCount.Text = "0.0000";
+            // 
+            // lbEarnedCount
+            // 
+            this.lbEarnedCount.AutoSize = true;
+            this.lbEarnedCount.Font = new System.Drawing.Font("Times New Roman", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.lbEarnedCount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(180)))), ((int)(((byte)(27)))));
+            this.lbEarnedCount.Location = new System.Drawing.Point(480, 198);
+            this.lbEarnedCount.Name = "lbEarnedCount";
+            this.lbEarnedCount.Size = new System.Drawing.Size(41, 12);
+            this.lbEarnedCount.TabIndex = 12;
+            this.lbEarnedCount.Text = "0.0000";
             // 
             // Main
             // 
@@ -228,6 +301,12 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Pool);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.lbEarnedCount);
+            this.Controls.Add(this.lbPaidIn24hCount);
+            this.Controls.Add(this.lbUnpaidCount);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.Account);
             this.Controls.Add(this.txtAccount);
             this.Controls.Add(this.txtCmdOutput);
@@ -261,6 +340,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnAddPool;
         private System.Windows.Forms.ComboBox ddlPool;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lbUnpaidCount;
+        private System.Windows.Forms.Label lbPaidIn24hCount;
+        private System.Windows.Forms.Label lbEarnedCount;
     }
 }
 

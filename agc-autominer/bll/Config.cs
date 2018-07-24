@@ -11,6 +11,8 @@ namespace agc_autominer.bll
     {
         public static string iniFilePath = System.Windows.Forms.Application.StartupPath +  "\\config.ini";
 
+        public static string configCoin = "AGC";
+
         public static bool configStartUp
         {
             get { return WinOSHelper.getStartUpState(); }

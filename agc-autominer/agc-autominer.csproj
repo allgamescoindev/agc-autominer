@@ -22,8 +22,8 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>false</MapFileExtensions>
-    <ApplicationRevision>25</ApplicationRevision>
-    <ApplicationVersion>1.1.2.25</ApplicationVersion>
+    <ApplicationRevision>30</ApplicationRevision>
+    <ApplicationVersion>1.1.3.30</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -84,10 +84,12 @@
   <ItemGroup>
     <Compile Include="bll\Config.cs" />
     <Compile Include="bll\Miner.cs" />
+    <Compile Include="bll\PoolApi.cs" />
     <Compile Include="bll\PoolBLL.cs" />
     <Compile Include="common\CmdHelper.cs" />
     <Compile Include="common\IniHelper.cs" />
     <Compile Include="common\JsonHelper.cs" />
+    <Compile Include="common\WebHelper.cs" />
     <Compile Include="common\WinOSHelper.cs" />
     <Compile Include="frmPool.cs">
       <SubType>Form</SubType>
@@ -102,6 +104,7 @@
       <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="model\Pool.cs" />
+    <Compile Include="model\ResultPoolApiWallet.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmPool.resx">

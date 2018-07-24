@@ -42,7 +42,6 @@ namespace agc_autominer
             Miner.DoCloseMiner();
         }
 
-
         public void initData()
         {
             loadConfig();
@@ -129,16 +128,17 @@ namespace agc_autominer
                     if (MiningState)
                     {
                         btnStartMining.Text = "Stop Mining";
+                        doStartPoolChecking();
                     }
                     else
                     {
                         btnStartMining.Text = "Start Mining";
                         txtCmdOutput.Text = "";
+                        isPoolChecking = false;
                     }
                 }));
             }).Start();
         }
-
 
         private void btnAddPool_Click(object sender, EventArgs e)
         {
@@ -146,5 +146,44 @@ namespace agc_autominer
             f.loadConfigDelegate = loadConfig;
             f.Show();
         }
+
+        #region Pool Status
+        bool isPoolChecking = false;
+        public void doStartPoolChecking()
+        {
+            new Thread(() =>
+            {
+                isPoolChecking = true;
+                while (this != null && isPoolChecking && !string.IsNullOrEmpty(Config.configAccount))
+                {
+                    Pool mPool = new PoolBLL().get(Config.configPool);
+                    if (mPool != null && !string.IsNullOrEmpty(mPool.poolApiUrl))
+                    {
+                        int indexOfDot = Config.configAccount.IndexOf(".");
+
+                        ResultPoolApiWallet mResultPoolApiWallet = new PoolApi().getWallet(
+                            mPool.poolApiUrl,
+                            indexOfDot > -1 ? Config.configAccount.Substring(0, Config.configAccount.IndexOf(".")) : Config.configAccount,
+                            Config.configCoin
+                            );
+                        if (mResultPoolApiWallet != null)
+                        {
+                            BeginInvoke(new Action(() =>
+                            {
+                                lbUnpaidCount.Text = mResultPoolApiWallet.unpaid;
+                                lbPaidIn24hCount.Text = mResultPoolApiWallet.paid24h;
+                                lbEarnedCount.Text = mResultPoolApiWallet.total;
+                            }));
+                        }
+                    }
+                    else
+                    {
+                        isPoolChecking = false;
+                    }
+                    Thread.Sleep(120 * 1000);
+                }
+            }).Start();
+        }
+        #endregion
     }
 }

@@ -24,8 +24,8 @@ Unzip the file, click agc-autominer.exe to run.<br>
 1) Account is your wallet address and work id. eg. AYNL6LVA4Za54HThT9xouhoa23ik3zxdNf.work01<br>
 2) Choose the pool in the dropdown list. If you want to use custom pool, you can click 'Add Pool' and see 3). 
 3) How to Add Pool. If you have pools, skip 3).<br>
-a. Stratum url inclouds url and port, not website url, you can find it in pool's page. eg. mine.allgamescoin.org:3636. 
-b. Api url is the api url of the pool that powered by yiimp. eg. pool.allgamescoin.org<br>
+a. Stratum url inclouds url and port, not website url, you can find it in pool's page. eg. mine.allgamescoin.org:3636 <br>
+b. Api url is the api url of the pool that powered by yiimp. eg. pool.allgamescoin.org <br>
 4) Start up enables the mining software to work automatically after the mine is restarted.<br>
 5) Save conifg or Start mining.<br>
 

@@ -15,7 +15,7 @@ Windows 10 has installed this environment. If you use Windows 8/7/XP, download i
 The nvidia core works on cuda 9.1. If your miner not work, try to update your drivers.<br>
 ### 2) Download<br>
 Download the latest version of the mining software<br>
-https://github.com/allgamescoindev/agc-auto-miner/releases<br>
+https://github.com/allgamescoindev/agc-autominer/releases<br>
 ### 3) Run<br>
 Unzip the file, click agc-autominer.exe to run.<br>
 

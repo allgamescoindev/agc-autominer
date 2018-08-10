@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace agc_autominer
+namespace xagc_autominer
 {
     static class Program
     {

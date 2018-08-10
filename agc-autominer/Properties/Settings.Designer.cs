@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace agc_autominer.Properties
+namespace xagc_autominer.Properties
 {
 
 

@@ -1,13 +1,13 @@
-﻿using agc_autominer.model;
-using agc_autominer.bll;
-using agc_autominer.common;
+﻿using xagc_autominer.model;
+using xagc_autominer.bll;
+using xagc_autominer.common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace agc_autominer.bll
+namespace xagc_autominer.bll
 {
     public class PoolBLL
     {

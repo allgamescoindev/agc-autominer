@@ -1,4 +1,4 @@
-﻿namespace agc_autominer
+﻿namespace xagc_autominer
 {
     partial class frmPool
     {
@@ -188,7 +188,7 @@
             this.MaximizeBox = false;
             this.Name = "frmPool";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "AGCAutoMiner";
+            this.Text = "XAGCAutoMiner";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmPool_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

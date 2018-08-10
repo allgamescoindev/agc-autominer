@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("agc-autominer")]
-[assembly: AssemblyDescription("agc-autominer")]
+[assembly: AssemblyTitle("xagc-autominer")]
+[assembly: AssemblyDescription("xagc-autominer")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("AllGamesCoin Dev")]
-[assembly: AssemblyProduct("agc-autominer")]
+[assembly: AssemblyProduct("xagc-autominer")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

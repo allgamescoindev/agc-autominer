@@ -1,5 +1,5 @@
-﻿using agc_autominer.common;
-using agc_autominer.model;
+﻿using xagc_autominer.common;
+using xagc_autominer.model;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -9,7 +9,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace agc_autominer.bll
+namespace xagc_autominer.bll
 {
     public class Miner
     {
@@ -66,7 +66,7 @@ namespace agc_autominer.bll
                 process.OutputDataReceived += new DataReceivedEventHandler(OutputHandler);
                 process.Start();//Startup program
                 Pool mPool = new PoolBLL().get(Config.configPool);
-                process.StandardInput.WriteLine(Miner.GetMinerString((Miner.E_GPUType)Config.configGPUType, "x16r", "AGC", mPool != null ? mPool.poolStratumUrl : null, Config.configAccount));
+                process.StandardInput.WriteLine(Miner.GetMinerString((Miner.E_GPUType)Config.configGPUType, "x16r", "XAGC", mPool != null ? mPool.poolStratumUrl : null, Config.configAccount));
                 process.BeginOutputReadLine();
 
                 return true;

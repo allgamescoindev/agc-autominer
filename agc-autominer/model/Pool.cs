@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace agc_autominer.model
+namespace xagc_autominer.model
 {
     public class Pool
     {

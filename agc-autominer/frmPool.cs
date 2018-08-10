@@ -8,12 +8,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using agc_autominer.common;
-using agc_autominer.bll;
+using xagc_autominer.common;
+using xagc_autominer.bll;
 using System.Threading;
-using agc_autominer.model;
+using xagc_autominer.model;
 
-namespace agc_autominer
+namespace xagc_autominer
 {
     public partial class frmPool : Form
     {

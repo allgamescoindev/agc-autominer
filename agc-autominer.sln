@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2013
 VisualStudioVersion = 12.0.40629.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "agc-autominer", "agc-autominer\agc-autominer.csproj", "{B8BDD967-419E-4497-A70C-8A5EA778F87D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xagc-autominer", "xagc-autominer\xagc-autominer.csproj", "{B8BDD967-419E-4497-A70C-8A5EA778F87D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

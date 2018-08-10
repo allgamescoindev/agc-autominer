@@ -1,4 +1,4 @@
-﻿namespace agc_autominer
+﻿namespace xagc_autominer
 {
     partial class Main
     {
@@ -318,7 +318,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Main";
-            this.Text = "AGCAutoMiner";
+            this.Text = "XAGCAutoMiner";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Main_FormClosed);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -5,7 +5,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace agc_autominer.common
+namespace xagc_autominer.common
 {
     public class IniHelper
     {

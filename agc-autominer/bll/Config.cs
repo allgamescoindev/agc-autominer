@@ -1,17 +1,17 @@
-﻿using agc_autominer.common;
+﻿using xagc_autominer.common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace agc_autominer.bll
+namespace xagc_autominer.bll
 {
     public class Config
     {
         public static string iniFilePath = System.Windows.Forms.Application.StartupPath +  "\\config.ini";
 
-        public static string configCoin = "AGC";
+        public static string configCoin = "XAGC";
 
         public static bool configStartUp
         {

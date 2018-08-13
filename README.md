@@ -4,7 +4,7 @@ AllGamesCoin @Coryright 2018, AllGamesCore Dev
 
 ## 1.Overview
 
-AllGamesCoin Auto Miner is a mining program that supports Nvidia and AMD GPUs. It inclouds ccminer and sgminer core. It can automatically use different cores to mine according to your equipment.
+XAGC-AutoMiner is a mining program that supports Nvidia and AMD GPUs. It inclouds ccminer and sgminer core. It can automatically use different cores to mine according to your equipment.
 
 ## 2.Install
 
@@ -31,6 +31,7 @@ b. Api url is the api url of the pool that powered by yiimp. eg. pool.allgamesco
 
 ## 4.Version
 
+1.1.5.42<br>Fix bug of the core.<br>
 1.1.4.40<br>Add pool's balance.<br>
 1.1.3.30<br>Add pool manage.<br>
 1.1.2.24<br>New UI.<br>

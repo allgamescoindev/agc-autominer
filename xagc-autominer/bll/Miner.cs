@@ -27,7 +27,7 @@ namespace xagc_autominer.bll
             switch (e_gpuType)
             {
                 case E_GPUType.Navida:
-                    return System.Windows.Forms.Application.StartupPath + (is64Bit ? "\\addon\\nvidia\\win_x64\\ccminer-x64.exe" : "\\addon\\nvidia\\win_x86\\ccminer.exe")
+                    return System.Windows.Forms.Application.StartupPath + (is64Bit ? "\\addon\\nvidia\\win_x64\\z-enemy.exe" : "\\addon\\nvidia\\win_x86\\z-enemy.exe")
                         + " -a " + algo
                         + " -o stratum+tcp://" + poolUrl
                         + " -u " + account
@@ -37,7 +37,8 @@ namespace xagc_autominer.bll
                         + " -k " + algo
                         + " -o stratum+tcp://" + poolUrl
                         + " -u " + account
-                        + " -p c=" + coin;
+                        + " -p c=" + coin
+                    + " -I 19";
                 default:
                     return "";
             }
@@ -66,6 +67,20 @@ namespace xagc_autominer.bll
                 process.OutputDataReceived += new DataReceivedEventHandler(OutputHandler);
                 process.Start();//Startup program
                 Pool mPool = new PoolBLL().get(Config.configPool);
+                switch ((Miner.E_GPUType)Config.configGPUType)
+                {
+                    case E_GPUType.Navida:
+                        break;
+                    case E_GPUType.AMD:
+                        process.StandardInput.WriteLine("set GPU_FORCE_64BIT_PTR=0");
+                        process.StandardInput.WriteLine("set GPU_USE_SYNC_OBJECTS=1");
+                        process.StandardInput.WriteLine("set GPU_MAX_ALLOC_PERCENT=100");
+                        process.StandardInput.WriteLine("set GPU_SINGLE_ALLOC_PERCENT=100");
+                        process.StandardInput.WriteLine("set GPU_MAX_HEAP_SIZE=100");
+                        break;
+                    default:
+                        break;
+                }
                 process.StandardInput.WriteLine(Miner.GetMinerString((Miner.E_GPUType)Config.configGPUType, "x16r", "XAGC", mPool != null ? mPool.poolStratumUrl : null, Config.configAccount));
                 process.BeginOutputReadLine();
 
@@ -83,7 +98,7 @@ namespace xagc_autominer.bll
             Process[] allProcess = Process.GetProcesses();
             foreach (Process p in allProcess)
             {
-                if (p.ProcessName.ToLower() + ".exe" == "ccminer.exe".ToLower() || p.ProcessName.ToLower() + ".exe" == "ccminer-x64.exe".ToLower() || p.ProcessName.ToLower() + ".exe" == "sgminer.exe".ToLower())
+                if (p.ProcessName.ToLower() + ".exe" == "ccminer.exe".ToLower() || p.ProcessName.ToLower() + ".exe" == "ccminer-x64.exe".ToLower() || p.ProcessName.ToLower() + ".exe" == "sgminer.exe".ToLower() || p.ProcessName.ToLower() + ".exe" == "z-enemy.exe".ToLower())
                 {
                     for (int i = 0; i < p.Threads.Count; i++)
                         p.Threads[i].Dispose();

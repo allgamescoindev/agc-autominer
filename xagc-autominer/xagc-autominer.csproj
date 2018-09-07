@@ -401,6 +401,9 @@
     <None Include="addon\amd\win_x86\kernel\zuikkis.cl">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="config.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">
@@ -450,18 +453,12 @@
     <None Include="addon\amd\win_x86\zlib1.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="addon\nvidia\win_x64\ccminer-x64.exe">
+    <Content Include="addon\nvidia\win_x64\z-enemy.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="addon\nvidia\win_x64\msvcr120.dll">
+    </Content>
+    <Content Include="addon\nvidia\win_x86\z-enemy.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="addon\nvidia\win_x86\ccminer.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="addon\nvidia\win_x86\msvcr120.dll">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    </Content>
     <Content Include="allgamescoin.ico" />
   </ItemGroup>
   <ItemGroup>
@@ -481,6 +478,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

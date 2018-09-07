@@ -31,6 +31,7 @@ b. Api url is the api url of the pool that powered by yiimp. eg. pool.allgamesco
 
 ## 4.Version
 
+1.1.6.48<br>Update the nVidia core to improve x16r hash; Update pools<br>
 1.1.5.42<br>Fix bug of the core.<br>
 1.1.4.40<br>Add pool's balance.<br>
 1.1.3.30<br>Add pool manage.<br>
